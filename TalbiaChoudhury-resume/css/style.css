@@ -231,15 +231,20 @@ footer {
   margin-right: auto;
 }
 
-/*#social {
-    display: inline-block; */ 
-
+footer a {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px;
 }
+
 
 @import url(http://weloveiconfonts.com/api/?family=zocial);
 
-/* zocial */
+ /*zocial*/ 
 [class*="zocial-"]:before {
   font-family: 'zocial', sans-serif;
 }
+
+
 
