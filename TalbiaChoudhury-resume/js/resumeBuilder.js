@@ -25,19 +25,6 @@ bio.display = function() {
 	
 	addContactInfo('#topContacts');
 
-
-	// var formattedMobile= HTMLmobile.replace("%data%", bio.contacts.mobile);
-	// $("#header").append(formattedMobile);
-
-	// var formattedEmail= HTMLemail.replace("%data%", bio.contacts.email);
-	// $("#header").append(formattedEmail);
-
-	// var formattedGithub= HTMLgithub.replace("%data%", bio.contacts.github);
-	// $("#header").append(formattedGithub);
-
-	// var formattedLocation= HTMLlocation.replace("%data%", bio.contacts.location);
-	// $("#header").append(formattedLocation);
-
 	var formattedBioPic= HTMLbioPic.replace("%data%", bio.bioPic);
 	$("#header").append(formattedBioPic);
 
@@ -131,7 +118,6 @@ education.display = function() {
 		}
 	}
 };	
-
 
 
 var work= {
