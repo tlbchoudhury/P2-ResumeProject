@@ -11,7 +11,7 @@ var bio= {
 	},
 	"welcomeMessage": "I am interested in a challenging role as a Front End Web Developer.",
 	"skills": ["Java Script", " JQuery", " CSS", " HTML", "Bootstrap"],
-	"bioPic": "./images/IMG_Me.jpg"
+	"biopic": "./images/IMG_Me.jpg"
 };
 
 
@@ -22,10 +22,11 @@ bio.display = function() {
 
 	var formattedName= HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
-	
+
+	 
 	addContactInfo('#topContacts');
 
-	var formattedBioPic= HTMLbioPic.replace("%data%", bio.bioPic);
+	var formattedBioPic= HTMLbioPic.replace("%data%", bio.biopic);
 	$("#header").append(formattedBioPic);
 
 	var formattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -39,22 +40,24 @@ bio.display = function() {
 			$("#skills").append(formattedSkill);
 		}
 	} 
+	function addContactInfo(idName) {
+		var formattedMobile= HTMLmobile.replace("%data%", bio.contacts.mobile);
+		$(idName).append(formattedMobile);
+
+		var formattedEmail= HTMLemail.replace("%data%", bio.contacts.email);
+		$(idName).append(formattedEmail);
+
+		var formattedGithub= HTMLgithub.replace("%data%", bio.contacts.github);
+		$(idName).append(formattedGithub);
+
+		var formattedLocation= HTMLlocation.replace("%data%", bio.contacts.location);
+		$(idName).append(formattedLocation);
+	}
+	addContactInfo('#footerContacts');
 
 };
 
-function addContactInfo(idName) {
-	var formattedMobile= HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$(idName).append(formattedMobile);
 
-	var formattedEmail= HTMLemail.replace("%data%", bio.contacts.email);
-	$(idName).append(formattedEmail);
-
-	var formattedGithub= HTMLgithub.replace("%data%", bio.contacts.github);
-	$(idName).append(formattedGithub);
-
-	var formattedLocation= HTMLlocation.replace("%data%", bio.contacts.location);
-	$(idName).append(formattedLocation);
-};
 
 
 var education={
@@ -68,7 +71,7 @@ var education={
 			"url": "https://www.ncsu.edu/"
 		}
 	],
-	"onlineDegree": [
+	"onlineCourses": [
 		{
 			"title": "Nanodegree",
 			"school": "Udacity",
@@ -99,21 +102,21 @@ education.display = function() {
 		$(".education-entry:last").append(formattedDegree);
 	}
 
-	if(education.onlineDegree.length > 0) {
+	if(education.onlineCourses.length > 0) {
 		$("#education").append(HTMLonlineClasses);
 
-		for (index in education.onlineDegree) {
+		for (index in education.onlineCourses) {
 
-			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineDegree[index].title);
+			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[index].title);
 			$(".education-entry:last").append(formattedTitle);
 
-			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineDegree[index].school);
+			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[index].school);
 			$(".education-entry:last").append(formattedSchool);
 
-			var formattedDates = HTMLonlineDates.replace("%data%", education.onlineDegree[index].dates);
+			var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[index].dates);
 			$(".education-entry:last").append(formattedDates);
 
-			var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineDegree[index].url);
+			var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[index].url);
 			$(".education-entry:last").append(formattedUrl);
 		}
 	}
@@ -225,7 +228,6 @@ bio.display();
 education.display();
 work.display();
 projects.display();
-addContactInfo('#footerContacts');
 social.display();
 
 $(document).click(function(loc) {
