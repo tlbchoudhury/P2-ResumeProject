@@ -43,7 +43,7 @@ var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%" height="300">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a href="#" target="_blank">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
@@ -57,6 +57,11 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+
+
+// var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
+var HTMLSocialGit = '<a href="#" class="zocial-github" target="_blank"></a>';
+var HTMLSocialLinkedIn = '<a href="#" class="zocial-linkedin" target="_blank"></a>';
 
 
 /*
@@ -129,7 +134,7 @@ function initializeMap() {
     // iterates through school locations and appends each location to
     // the locations array
     for (var school in education.schools) {
-      locations.push(education.schools[school].city);
+      locations.push(education.schools[school].location);
     }
 
     // iterates through work locations and appends each location to
