@@ -73,7 +73,7 @@ var education={
 	],
 	"onlineCourses": [
 		{
-			"title": "Nanodegree",
+			"title": "Front End Web Developer Nanodegree",
 			"school": "Udacity",
 			"dates": "2016",
 			"url": "http://www.udacity.com"
@@ -87,6 +87,10 @@ education.display = function() {
 
 		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[index].name);
 		formattedSchoolName = formattedSchoolName.replace("#", education.schools[index].url);
+
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[index].degree);
+
+		formattedSchoolName = formattedSchoolName + formattedDegree;
 		$(".education-entry:last").append(formattedSchoolName);
 
 		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[index].dates);
@@ -97,21 +101,19 @@ education.display = function() {
 
 		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[index].majors);
 		$(".education-entry:last").append(formattedMajor);
-
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[index].degree);
-		$(".education-entry:last").append(formattedDegree);
 	}
 
 	if(education.onlineCourses.length > 0) {
-		$("#education").append(HTMLonlineClasses);
+		$(".education-entry:last").append(HTMLonlineClasses);
 
 		for (index in education.onlineCourses) {
 
 			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[index].title);
+			
+			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[index].school);
+			formattedTitle = formattedTitle + formattedSchool;
 			$(".education-entry:last").append(formattedTitle);
 
-			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[index].school);
-			$(".education-entry:last").append(formattedSchool);
 
 			var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[index].dates);
 			$(".education-entry:last").append(formattedDates);
@@ -151,10 +153,9 @@ work.display = function() {
 
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[index].employer);
 		formattedEmployer= formattedEmployer.replace("#", work.jobs[index].url);
-		$(".work-entry:last").append(formattedEmployer);
-
 		var formattedworkTitle = HTMLworkTitle.replace("%data%", work.jobs[index].title);
-		$(".work-entry:last").append(formattedworkTitle);
+		formattedEmployer= formattedEmployer + formattedworkTitle; 
+		$(".work-entry:last").append(formattedEmployer);
 
 		var formattedworkDates = HTMLworkDates.replace("%data%", work.jobs[index].dates);
 		$(".work-entry:last").append(formattedworkDates);
